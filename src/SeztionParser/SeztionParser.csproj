@@ -7,8 +7,8 @@
     <Product>Seztion Parser</Product>
     <Copyright>David Román Amariles</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://mrdave1999.github.io/seztion-parser/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/MrDave1999/seztion-parser</RepositoryUrl>
+    <PackageProjectUrl>https://DevD4v3.github.io/seztion-parser/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DevD4v3/seztion-parser</RepositoryUrl>
     <PackageTags>parser, sections file, sections data</PackageTags>
     <PackageId>seztion-parser</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,7 +17,7 @@
     <PackageIcon>seztionparser-icon-nuget.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Version>3.0.0</Version>
-    <PackageReleaseNotes>See https://github.com/MrDave1999/seztion-parser/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://github.com/DevD4v3/seztion-parser/releases</PackageReleaseNotes>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
 
