@@ -1,10 +1,10 @@
 # seztion-parser
 
-[![seztion-parser-logo](https://raw.githubusercontent.com/MrDave1999/seztion-parser/main/docs/images/seztionparser-logo.png)](https://github.com/mrdave1999/seztion-parser)
+[![seztion-parser-logo](https://raw.githubusercontent.com/DevD4v3/seztion-parser/main/docs/images/seztionparser-logo.png)](https://github.com/DevD4v3/seztion-parser)
 
 [![seztion-parser](https://img.shields.io/nuget/vpre/seztion-parser?label=Seztion.Parser%20-%20nuget&color=red)](https://www.nuget.org/packages/seztion-parser)
 [![downloads](https://img.shields.io/nuget/dt/seztion-parser?color=yellow)](https://www.nuget.org/packages/seztion-parser)
-[![license](https://img.shields.io/badge/License-MIT-green)](https://raw.githubusercontent.com/MrDave1999/seztion-parser/master/LICENSE)
+[![license](https://img.shields.io/badge/License-MIT-green)](https://raw.githubusercontent.com/DevD4v3/seztion-parser/master/LICENSE)
 
 **seztion-parser** is a class library used to read data from each section of a file (the file extension can be any, e.g. `.INI`).
 
@@ -34,7 +34,7 @@ Then it occurred to me that I could save the spawn positions in a file in this w
 ```
 And this is where the **seztion-parzer** library comes into play, as it is simple to extract this data with this library. I didn't want to use a database for this, I wanted something very simple and this is what I came up with at the time.
 
-Don't forget to visit the official library [website](https://mrdave1999.github.io/seztion-parser) where you can find [API documentation](https://mrdave1999.github.io/seztion-parser/api/SeztionParser.html) and [articles](https://mrdave1999.github.io/seztion-parser/articles/getting_started.html).
+Don't forget to visit the official library [website](https://DevD4v3.github.io/seztion-parser) where you can find [API documentation](https://DevD4v3.github.io/seztion-parser/api/SeztionParser.html) and [articles](https://DevD4v3.github.io/seztion-parser/articles/getting_started.html).
 
 ## Installation
 
@@ -64,8 +64,8 @@ ISectionData alphaSection = sections["Alpha"];
 foreach (string data in alphaSection)
     Console.WriteLine(data);
 ```
-For more information, see the [articles](https://mrdave1999.github.io/seztion-parser/articles/getting_started.html).
+For more information, see the [articles](https://DevD4v3.github.io/seztion-parser/articles/getting_started.html).
 
 ## Contribution
 
-If you want to contribute in this project, simply fork the repository, make changes and then create a [pull request](https://github.com/MrDave1999/seztion-parser/pulls).
+If you want to contribute in this project, simply fork the repository, make changes and then create a [pull request](https://github.com/DevD4v3/seztion-parser/pulls).
