@@ -97,4 +97,66 @@ public class SingleLineSectionTests
         // Assert
         actual.Should().Be(expected);
     }
+
+    [TestMethod]
+    public void GetFirstLineEnum_WhenConversionIsValid_ShouldReturnEnum()
+    {
+        // Arrange
+        var data =
+        """
+        [section1]
+        Alpha
+        """;
+        var sections = new SectionsParser().Parse(data);
+        TestEnum expected = TestEnum.Alpha;
+
+        // Act
+        TestEnum actual = sections.GetFirstLineEnum<TestEnum>("section1");
+
+        // Assert
+        actual.Should().Be(expected);
+    }
+
+    [TestMethod]
+    public void GetFirstLineEnum_WhenIgnoreCaseIsTrue_ShouldReturnEnum()
+    {
+        // Arrange
+        var data =
+        """
+        [section1]
+        alpha
+        """;
+        var sections = new SectionsParser().Parse(data);
+        TestEnum expected = TestEnum.Alpha;
+
+        // Act
+        TestEnum actual = sections.GetFirstLineEnum<TestEnum>("section1", ignoreCase: true);
+
+        // Assert
+        actual.Should().Be(expected);
+    }
+
+    [TestMethod]
+    public void GetFirstLineEnum_WhenValueIsInvalid_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var data =
+        """
+        [section1]
+        Invalid
+        """;
+        var sections = new SectionsParser().Parse(data);
+
+        // Act
+        Action action = () => sections.GetFirstLineEnum<TestEnum>("section1");
+
+        // Assert
+        action.Should().Throw<ArgumentException>();
+    }
+
+    private enum TestEnum
+    {
+        Alpha,
+        Beta
+    }
 }

@@ -80,4 +80,23 @@ public static class SingleLineSection
     /// <returns>The first line in <c>string</c> format.</returns>
     public static string GetFirstLineString(this ISectionsData sections, string sectionName)
         => sections[sectionName][0];
+
+
+    /// <summary>
+    /// Gets the first line of the section in an enum format.
+    /// </summary>
+    /// <typeparam name="TEnum">The enum type.</typeparam>
+    /// <param name="sections">The data of sections.</param>
+    /// <param name="sectionName">The name of the section.</param>
+    /// <param name="ignoreCase">Whether the name comparison is case-insensitive.</param>
+    /// <exception cref="ArgumentException">
+    /// If the first line does not represent a valid value of <typeparamref name="TEnum" />.
+    /// </exception>
+    /// <exception cref="SectionNotFoundException">
+    /// If the <c>section</c> does not exist.
+    /// </exception>
+    /// <returns>The first line converted to <typeparamref name="TEnum" />.</returns>
+    public static TEnum GetFirstLineEnum<TEnum>(this ISectionsData sections, string sectionName, bool ignoreCase = false)
+        where TEnum : struct, Enum
+        => (TEnum)Enum.Parse(typeof(TEnum), sections[sectionName][0], ignoreCase);
 }
