@@ -6,66 +6,150 @@
 [![downloads](https://img.shields.io/nuget/dt/seztion-parser?color=yellow)](https://www.nuget.org/packages/seztion-parser)
 [![license](https://img.shields.io/badge/License-MIT-green)](https://raw.githubusercontent.com/DevD4v3/seztion-parser/master/LICENSE)
 
-**seztion-parser** is a class library used to read data from each section of a file (the file extension can be any, e.g. `.INI`).
+**Seztion Parser** is a lightweight .NET library for reading section-based configuration files, such as `.ini` files. It provides a simple API for accessing the contents of each section while remaining independent of the file extension.
 
-There is a history behind why this library exists.
+## Why this library exists
 
-Some time ago I was creating a gamemode in [SA-MP](https://sa-mp.mp/) (San Andreas Multiplayer, a multiplayer mod for GTA San Andrea) that was based on two teams (Alpha and Beta), so I needed to somehow store the **spawn positions** (is the location where the player appears on the map) of a given map (the place where the player plays).
+Seztion Parser was originally developed for the [Capture the Flag](https://github.com/DevD4v3/Capture-The-Flag) game mode for [SA-MP](https://www.sa-mp.mp) (San Andreas Multiplayer), a multiplayer mod for GTA San Andreas.
 
-Then it occurred to me that I could save the spawn positions in a file in this way:
+Each map configuration file contained information such as:
+
+- Alpha team spawn locations
+- Beta team spawn locations
+- Red and blue flag locations
+- Interior ID
+- Weather
+- World time
+
+Instead of using a database, each map's configuration was stored in an INI file organized into sections.
+
 ```ini
-# Section(1).
-[Alpha]
-# Spawn positions - Alpha Team.
-2548.7009,-1283.2224,1060.9844,230.3022
-2565.8301,-1281.7773,1065.3672,238.1356
-2575.7759,-1283.3206,1065.3672,177.9750
-2580.8525,-1284.6443,1065.3579,88.0476
-2568.5518,-1283.6564,1060.9844,181.0851
+#
+# Aim_Headshot Map
+#
 
-# Section(2).
-[Beta]
-# Spawn positions - Beta Team.
-2532.1660,-1283.6971,1031.4219,270.0725
-2532.5823,-1292.2178,1031.4219,275.7126
-2532.9485,-1302.3477,1031.4219,269.4458
-2541.2852,-1303.9135,1031.4219,269.4458
-2542.1389,-1293.7726,1031.4219,262.8658
+# Format: X,Y,Z,Angle
+[AlphaTeamLocations]
+-669.9301,2567.7261,233.1899,4.0968
+-662.3662,2568.0757,233.1899,4.4101
+
+[BetaTeamLocations]
+-656.4174,2739.6848,219.2168,177.9750
+-650.9906,2739.0764,219.2168,177.9750
+
+# Format: X,Y,Z
+[RedFlagLocation]
+-729.1639,2635.3447,223.3559
+
+[BlueFlagLocation]
+-576.2537,2731.9312,233.3905
+
+[Interior]
+10
+
+[Weather]
+1
+
+[WorldTime]
+12
 ```
-And this is where the **seztion-parzer** library comes into play, as it is simple to extract this data with this library. I didn't want to use a database for this, I wanted something very simple and this is what I came up with at the time.
 
-Don't forget to visit the official library [website](https://DevD4v3.github.io/seztion-parser) where you can find [API documentation](https://DevD4v3.github.io/seztion-parser/api/SeztionParser.html) and [articles](https://DevD4v3.github.io/seztion-parser/articles/getting_started.html).
+Seztion Parser provides a straightforward API for loading this configuration and accessing each section.
+
+## Features
+
+- Read section-based configuration files.
+- Access sections by name.
+- Enumerate all values within a section.
+- Read typed values from the first line of a section.
+- Supports any file extension (not limited to `.ini`).
+- Lightweight with no external dependencies.
 
 ## Installation
 
-If you're an hardcore and want to do it manually, you must add the following to the `csproj` file:
-```xml
-<PackageReference Include="seztion-parser" Version="3.0.0" />
-```
-If you're want to install the package from Visual Studio, you must open the project/solution in Visual Studio, and open the console using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command and run the install command:
-```
-Install-Package seztion-parser
-```
-If you are making use of the dotnet CLI, then run the following in your terminal:
-```
+Install the package using the .NET CLI:
+
+```bash
 dotnet add package seztion-parser
+```
+
+Or using the NuGet Package Manager:
+
+```powershell
+Install-Package seztion-parser
 ```
 
 ## Usage
 
-```cs
-// Import all namespace types.
+The following example loads the map configuration and reads the data from each section.
+
+```csharp
 using SeztionParser;
 
-// Load the sections file.
-ISectionsData sections = SectionsFile.Load("my_file.ini");
-ISectionData alphaSection = sections["Alpha"];
-// This prints the data of the 'Alpha' section.
-foreach (string data in alphaSection)
+ISectionsData sections = SectionsFile.Load("Aim_Headshot.ini");
+
+Console.WriteLine("[AlphaTeamLocations]");
+ISectionData alphaTeamLocations = sections["AlphaTeamLocations"];
+foreach (string data in alphaTeamLocations)
     Console.WriteLine(data);
+
+Console.WriteLine();
+
+Console.WriteLine("[BetaTeamLocations]");
+ISectionData betaTeamLocations = sections["BetaTeamLocations"];
+foreach (string data in betaTeamLocations)
+    Console.WriteLine(data);
+
+Console.WriteLine();
+
+Console.WriteLine("[RedFlagLocation]");
+ISectionData redFlagLocation = sections["RedFlagLocation"];
+foreach (string data in redFlagLocation)
+    Console.WriteLine(data);
+
+Console.WriteLine();
+
+Console.WriteLine("[BlueFlagLocation]");
+ISectionData blueFlagLocation = sections["BlueFlagLocation"];
+foreach (string data in blueFlagLocation)
+    Console.WriteLine(data);
+
+int interior = sections.GetFirstLineInt("Interior");
+Console.WriteLine();
+Console.WriteLine("[Interior]");
+Console.WriteLine(interior);
+
+int weather = sections.GetFirstLineInt("Weather");
+Console.WriteLine();
+Console.WriteLine("[Weather]");
+Console.WriteLine(weather);
+
+int worldTime = sections.GetFirstLineInt("WorldTime");
+Console.WriteLine();
+Console.WriteLine("[WorldTime]");
+Console.WriteLine(worldTime);
 ```
-For more information, see the [articles](https://DevD4v3.github.io/seztion-parser/articles/getting_started.html).
+
+## Documentation
+
+Documentation is available on the project website.
+
+- [Website](https://DevD4v3.github.io/seztion-parser)
+- [Getting Started](https://DevD4v3.github.io/seztion-parser/articles/getting_started.html)
+- [API Reference](https://DevD4v3.github.io/seztion-parser/api/SeztionParser.html)
 
 ## Contribution
 
-If you want to contribute in this project, simply fork the repository, make changes and then create a [pull request](https://github.com/DevD4v3/seztion-parser/pulls).
+Contributions of all kinds are welcome! You can help by improving the code, documentation, or tests.
+
+To contribute:
+
+- Fork the repository.
+- Create a feature branch (`git checkout -b my-new-change`).
+- Commit your changes (`git commit -am "Add some change"`).
+- Push to your branch (`git push origin my-new-change`).
+- Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/DevD4v3/seztion-parser/blob/main/LICENSE) file for details.
