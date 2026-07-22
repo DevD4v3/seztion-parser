@@ -115,7 +115,7 @@ public class SectionsParserTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ParserTestCases.SectionHasNoData), typeof(ParserTestCases), DynamicDataSourceType.Property)]
+    [DynamicData(nameof(ParserTestCases.SectionHasNoData), typeof(ParserTestCases))]
     public void Parse_WhenSectionHasNoData_ShouldThrowParserException(string data)
     {
         // Arrange
@@ -132,7 +132,7 @@ public class SectionsParserTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ParserTestCases.SectionNameIsEmpty), typeof(ParserTestCases), DynamicDataSourceType.Property)]
+    [DynamicData(nameof(ParserTestCases.SectionNameIsEmpty), typeof(ParserTestCases))]
     public void Parse_WhenSectionNameIsEmpty_ShouldThrowParserException(string data)
     {
         // Arrange

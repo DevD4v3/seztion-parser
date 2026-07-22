@@ -40,7 +40,7 @@ public class SectionModelTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(SectionContainsData), DynamicDataSourceType.Property)]
+    [DynamicData(nameof(SectionContainsData))]
     public void ToString_WhenSectionContainsData_ShouldReturnsString(ISectionData data, string expectedString)
     {
         // Arrange
