@@ -6,7 +6,8 @@
     <Authors>David Román Amariles</Authors>
     <Product>Seztion Parser</Product>
     <Copyright>David Román Amariles</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://DevD4v3.github.io/seztion-parser/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DevD4v3/seztion-parser</RepositoryUrl>
     <PackageTags>parser, sections file, sections data</PackageTags>
@@ -20,14 +21,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../seztionparser-icon-nuget.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="../../README.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="..\..\seztionparser-icon-nuget.png" Pack="True" PackagePath="" />
+    <None Include="..\..\README.md" Pack="True" PackagePath="" />
+    <None Include="..\..\LICENSE" Pack="True" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
