@@ -41,7 +41,7 @@ public class SectionModelTests
 
     [TestMethod]
     [DynamicData(nameof(SectionContainsData))]
-    public void ToString_WhenSectionContainsData_ShouldReturnsString(ISectionData data, string expectedString)
+    public void ToString_WhenSectionContainsData_ShouldReturnString(ISectionData data, string expectedString)
     {
         // Arrange
         var name = "Position";

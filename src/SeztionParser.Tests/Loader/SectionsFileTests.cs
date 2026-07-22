@@ -4,7 +4,7 @@
 public class SectionsFileTests
 {
     [TestMethod]
-    public void Load_WhenSectionValueIsRead_ShouldReturnsSectionValues()
+    public void Load_WhenSectionValueIsRead_ShouldReturnSectionValues()
     {
         // Arrange
         var path = Path.Combine("Loader", "sample.ini");

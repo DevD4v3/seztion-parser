@@ -40,7 +40,7 @@ public class SectionsDataTests
     }
 
     [TestMethod]
-    public void Indexer_WhenSectionNameIsFound_ShouldReturnsSectionValues()
+    public void Indexer_WhenSectionNameIsFound_ShouldReturnSectionValues()
     {
         // Arrange
         var sections = new SectionsData
@@ -79,7 +79,7 @@ public class SectionsDataTests
     }
 
     [TestMethod]
-    public void TryGetData_WhenSectionNameIsNotFound_ShouldReturnsFalse()
+    public void TryGetData_WhenSectionNameIsNotFound_ShouldReturnFalse()
     {
         // Arrange
         var sections = new SectionsData();
@@ -93,7 +93,7 @@ public class SectionsDataTests
     }
 
     [TestMethod]
-    public void TryGetData_WhenSectionNameIsFound_ShouldReturnsTrue()
+    public void TryGetData_WhenSectionNameIsFound_ShouldReturnTrue()
     {
         // Arrange
         var sections = new SectionsData
@@ -114,7 +114,7 @@ public class SectionsDataTests
     }
 
     [TestMethod]
-    public void ToString_WhenConvertingSectionsDataToString_ShouldReturnsString()
+    public void ToString_WhenConvertingSectionsDataToString_ShouldReturnString()
     {
         // Arrange
         var sections = new SectionsData

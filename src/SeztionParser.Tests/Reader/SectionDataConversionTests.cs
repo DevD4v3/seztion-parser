@@ -4,7 +4,7 @@
 public class SectionDataConversionTests
 {
     [TestMethod]
-    public void ToDecimal_WhenConversionIsValid_ShouldReturnsEnumerable()
+    public void ToDecimal_WhenConversionIsValid_ShouldReturnEnumerable()
     {
         // Arrange
         var data =
@@ -26,7 +26,7 @@ public class SectionDataConversionTests
     }
 
     [TestMethod]
-    public void ToDouble_WhenConversionIsValid_ShouldReturnsEnumerable()
+    public void ToDouble_WhenConversionIsValid_ShouldReturnEnumerable()
     {
         // Arrange
         var data =
@@ -48,7 +48,7 @@ public class SectionDataConversionTests
     }
 
     [TestMethod]
-    public void ToFloat_WhenConversionIsValid_ShouldReturnsEnumerable()
+    public void ToFloat_WhenConversionIsValid_ShouldReturnEnumerable()
     {
         // Arrange
         var data =
@@ -70,7 +70,7 @@ public class SectionDataConversionTests
     }
 
     [TestMethod]
-    public void ToInt_WhenConversionIsValid_ShouldReturnsEnumerable()
+    public void ToInt_WhenConversionIsValid_ShouldReturnEnumerable()
     {
         // Arrange
         var data =
@@ -92,7 +92,7 @@ public class SectionDataConversionTests
     }
 
     [TestMethod]
-    public void ToLong_WhenConversionIsValid_ShouldReturnsEnumerable()
+    public void ToLong_WhenConversionIsValid_ShouldReturnEnumerable()
     {
         // Arrange
         var data =

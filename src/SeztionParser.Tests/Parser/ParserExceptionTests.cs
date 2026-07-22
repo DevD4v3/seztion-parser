@@ -4,7 +4,7 @@
 public class ParserExceptionTests
 {
     [TestMethod]
-    public void Message_WhenActualValueIsDefined_ShouldReturnsFormattedMessage()
+    public void Message_WhenActualValueIsDefined_ShouldReturnFormattedMessage()
     {
         // Arrange
         var message = ExceptionMessages.SeccionIsRepeatedMessage;
@@ -20,7 +20,7 @@ public class ParserExceptionTests
     }
 
     [TestMethod]
-    public void Message_WhenActualValueIsNotDefined_ShouldReturnsDefaultMessage()
+    public void Message_WhenActualValueIsNotDefined_ShouldReturnDefaultMessage()
     {
         // Arrange
         var exception = new ParserException();

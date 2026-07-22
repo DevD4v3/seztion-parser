@@ -4,7 +4,7 @@ namespace SeztionParser.Tests.Parser;
 public class SectionsParserTests
 {
     [TestMethod]
-    public void Parse_WhenSectionNameIsCaseInsensitive_ShouldReturnsSectionValues()
+    public void Parse_WhenSectionNameIsCaseInsensitive_ShouldReturnSectionValues()
     {
         // Arrange
         var data =
@@ -26,7 +26,7 @@ public class SectionsParserTests
     }
 
     [TestMethod]
-    public void Parse_WhenSectionNameIsRead_ShouldReturnsSections()
+    public void Parse_WhenSectionNameIsRead_ShouldReturnSections()
     {
         // Arrange
         var data =
@@ -52,7 +52,7 @@ public class SectionsParserTests
     }
 
     [TestMethod]
-    public void Parse_WhenSectionValueIsRead_ShouldReturnsSectionValues()
+    public void Parse_WhenSectionValueIsRead_ShouldReturnSectionValues()
     {
         var data =
         """
