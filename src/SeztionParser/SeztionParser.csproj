@@ -11,7 +11,6 @@
     <RepositoryUrl>https://github.com/DevD4v3/seztion-parser</RepositoryUrl>
     <PackageTags>parser, sections file, sections data</PackageTags>
     <PackageId>seztion-parser</PackageId>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Description>seztion-parser is a class library used to read data from each section of a file (the file extension can be any, e.g. .INI).</Description>
     <PackageIcon>seztionparser-icon-nuget.png</PackageIcon>
