@@ -61,8 +61,10 @@ internal class SectionData : ISectionData
         {
             var sb = new StringBuilder();
             sb.Append($"[{NewLine}");
+
             foreach (var data in this)
                 sb.Append($"   {data}{NewLine}");
+
             sb.Append($"]{NewLine}");
             return sb.ToString();
         }

@@ -20,6 +20,7 @@ public class SectionsParser : ISectionsParser
         SectionData sectionData = default;
         string sectionName = string.Empty;
         int len = lines.Length;
+
         for (int i = 0; i < len; ++i)
         {
             var line = lines[i];
@@ -50,6 +51,7 @@ public class SectionsParser : ISectionsParser
                 sectionData.Add(line);
             }
         }
+
         bool isEmptyLastSection = sectionData.Count == 0;
         if (isEmptyLastSection)
             throw new ParserException(ExceptionMessages.SectionWithoutDataMessage, sectionName);

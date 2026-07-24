@@ -29,6 +29,7 @@ internal class SectionsData : ISectionsData
             ThrowHelper.ThrowIfNull(section, nameof(section));
             if (_sections.TryGetValue(section, out var value))
                 return value;
+
             throw new SectionNotFoundException(SpecifiedSectionDoesNotExistMessage, nameof(section));
         }
     }
@@ -49,7 +50,7 @@ internal class SectionsData : ISectionsData
             _sections.Add(section, data);
             return true;
         }
-        catch(ArgumentException)
+        catch (ArgumentException)
         {
             return false;
         }
@@ -76,7 +77,7 @@ internal class SectionsData : ISectionsData
     /// <returns>An enumerator used to traverse all sections of the collection.</returns>
     public IEnumerator<SectionModel> GetEnumerator()
     {
-        foreach(var section in _sections)
+        foreach (var section in _sections)
             yield return new SectionModel(section.Key, section.Value);
     }
 
@@ -94,8 +95,10 @@ internal class SectionsData : ISectionsData
     public override string ToString()
     {
         var sb = new StringBuilder();
-        foreach(var section in this)
+
+        foreach (var section in this)
             sb.Append(section.ToString());
+
         return sb.ToString();
     }
 }

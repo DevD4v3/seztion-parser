@@ -11,7 +11,8 @@ public class SectionModelTests
         var data = new SectionData();
 
         // Act
-        Action act = () => {
+        Action act = () =>
+        {
             var model = new SectionModel(name, data);
         };
 
@@ -29,7 +30,8 @@ public class SectionModelTests
         var data = default(ISectionData);
 
         // Act
-        Action act = () => {
+        Action act = () =>
+        {
             var model = new SectionModel(name, data);
         };
 
